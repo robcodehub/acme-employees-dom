@@ -47,11 +47,26 @@ document.getElementById("employee-list").appendChild(divi);     // Append <p> to
 
   const empName = [...document.getElementsByClassName('employee-name')];
 
+
+let favNames = {
+  name1: null,
+  name2: null,
+  name3: null
+}
+
 empName.forEach(element => {
   element.addEventListener('click', (ev) => {
     console.log(ev.target.innerHTML);
     let currentName = ev.target.innerHTML;
-    window.localStorage.setItem("name", currentName);
+    if (favNames.name1 === null) {
+      favNames.name1 = currentName;
+    } else if (favNames.name2 === null) {
+      favNames.name2 = currentName;
+    } else if (favNames.name3 === null) {
+      favNames.name3 = currentName;
+    }
+
+    window.localStorage.setItem("favs", JSON.stringify(favNames));
   }  );
 });
 
