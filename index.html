@@ -34,7 +34,26 @@
     { id: 99, name: 'lucy', managerId: 1}
   ];
 
-    const li = employees.forEach (elm) => ()
+  employees.forEach(function(employee) {
+
+//create a div element
+  let divi = document.createElement("div");
+  //
+  divi.innerHTML = employee.name;
+    divi.className = 'employee-name'
+document.getElementById("employee-list").appendChild(divi);     // Append <p> to <div> with id="myDIV"
+  });
+
+
+  const empName = [...document.getElementsByClassName('employee-name')];
+
+empName.forEach(element => {
+  element.addEventListener('click', (ev) => {
+    console.log(ev.target.innerHTML);
+
+  }  );
+});
+
 
   </script>
   </body>
